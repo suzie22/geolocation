@@ -9,30 +9,25 @@ pipeline {
     
 
     stages {
-        stage('Build') {
+        stage('maven package') {
             steps {
                 sh 'mvn clean'
                 sh 'mvn install'
                 sh 'mvn package'
             }
         }
-          stage('Test') {
+          stage('test') {
             steps {
                 sh 'mvn test'
                 
             }
         }
-          stage('Deploy') {
+          stage('deploy') {
             steps {
-                echo 'Deploy step'
+                echo 'deploy'
                 
             }
         }
-          stage('Docker') {
-            steps {
-                echo 'Image step'
-                
-            }
-        }
+         
     }
 }
